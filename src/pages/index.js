@@ -27,22 +27,15 @@ const QRScanner = () => {
       {!showVideo ? (
         <SwipeableEdgeDrawer onPlayWithSociapa={handlePlayWithSociapa} />
       ) : (
-        <video
-          src={videoURL}
-          autoPlay
-          muted
-          controls
-          style={{
-            position: "absolute",
-            top: "28%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "100%",
-            height:"100vh",
-            border: "2px solid #fff",
-            borderRadius: "10px",
-          }}
-        />
+        <div className="video-container">
+          <video
+            src={videoURL}
+            autoPlay
+            muted
+            controls
+            className="animated-video"
+          />
+        </div>
       )}
     </div>
   );
