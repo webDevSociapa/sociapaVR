@@ -34,11 +34,11 @@ const QRScanner = () => {
           controls
           style={{
             position: "absolute",
-            top: "50%",
+            top: "28%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: "25%",
-            height: "50%",
+            width: "30%",
+            height:"100vh",
             border: "2px solid #fff",
             borderRadius: "10px",
           }}
