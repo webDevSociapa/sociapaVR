@@ -7,7 +7,7 @@ const QRScanner = () => {
 
   const handlePlayWithSociapa = () => {
     setVideoURL(
-      "https://apisindia.s3.ap-south-1.amazonaws.com/homeBanner/f70925c7-972d-4c27-83bf-d82477e3202e_Jam+1440-698.mp4"
+      "https://apisindia.s3.ap-south-1.amazonaws.com/homeBanner/638993b4-7545-496d-815c-5d7d81c22ea4_Main+Banner+Video+02.mp4"
     );
     setShowVideo(true);
   };
@@ -37,7 +37,7 @@ const QRScanner = () => {
             top: "28%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: "30%",
+            width: "100%",
             height:"100vh",
             border: "2px solid #fff",
             borderRadius: "10px",
