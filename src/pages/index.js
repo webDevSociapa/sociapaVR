@@ -18,8 +18,10 @@ const QRScanner = () => {
         position: "relative",
         width: "100%",
         height: "100vh",
-        backgroundImage: "url('./neww.jpg')",
-        backgroundSize: "cover",
+        backgroundImage: "url('./new12.png')",
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
       }}
     >
       {!showVideo ? (
@@ -35,7 +37,7 @@ const QRScanner = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: "85%",
+            width: "25%",
             height: "50%",
             border: "2px solid #fff",
             borderRadius: "10px",
