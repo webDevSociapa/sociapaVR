@@ -63,7 +63,7 @@ body {
   align-items: center;
   aspect-ratio: 16 / 9;
   /* Maintain video aspect ratio */
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  border: 8px solid rgba(255, 255, 255, 0.8);
   /* White border for effect */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   /* Subtle shadow for depth */
@@ -78,7 +78,7 @@ body {
 .animated-video {
   width: 100%;
   object-fit: cover;
-  padding: 80px 0px;
+  padding: 85px 0px 0px 0px;
   border: none;
   height: 750px;
   animation: scaleIn 1s ease-in-out;
