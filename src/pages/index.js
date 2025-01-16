@@ -65,8 +65,7 @@ const QRScanner = () => {
           backgroundImage: qrDetected ? "url('./neww.jpg')" : "none",
           backgroundSize: "cover",
         }}
-      >
-{/*   
+      >   
         {!videoURL ? (
           <>
             <Webcam
@@ -117,7 +116,7 @@ const QRScanner = () => {
               borderRadius: "10px",
             }}
           />
-        )} */}
+        )}
   
         {qrPosition && (
           <video
