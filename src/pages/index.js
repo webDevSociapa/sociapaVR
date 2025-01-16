@@ -65,7 +65,7 @@ const QRScanner = () => {
         height: "100vh",
         backgroundImage: showVideoInBackground
           ? "none"
-          : "url('./new111.png')", // Show background image if not showing video
+          : "url('./news1.png')", // Show background image if not showing video
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
