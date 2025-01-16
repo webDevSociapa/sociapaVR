@@ -38,10 +38,10 @@ const QRScanner = () => {
         position: "relative",
         width: "100%",
         height: "100vh",
-        backgroundImage: "url('./new111.png')",
-        backgroundSize: "cover",
+        backgroundImage: "url('./news1.png')",
+        backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: `${50 + orientation.gamma / 10}% ${50 + orientation.beta / 10}%`, // Adjust background position with device orientation
+        backgroundPosition: `${50 + orientation.gamma / 5}% ${50 + orientation.beta / 5}%`,
         transition: "background-position 0.1s ease-out", // Smooth transition for background movement
       }}
     >
@@ -56,15 +56,7 @@ const QRScanner = () => {
             controls
             className="animated-video"
             style={{
-              transform: `rotate(${orientation.alpha}deg)`, // Rotate video according to the device's rotation
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transformOrigin: "center",
-              width: "80%",
-              height: "auto",
-              transition: "transform 0.1s ease-out", // Smooth transition for video rotation
-              objectFit: "cover", // Ensure the video covers the area well
+              transform: `rotate(${orientation.alpha}deg)`, // Rotate the video according to device orientation
             }}
           />
         </div>
