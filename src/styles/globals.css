@@ -26,7 +26,8 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url('.../../../../public/new12.png'); /* Newspaper image */
+  background-image: url('.../../../../public/new111.png');
+  /* Newspaper image */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -60,16 +61,26 @@ body {
   /* padding: 180px 15px; */
   justify-content: center;
   align-items: center;
-  animation: fadeIn 1s ease-in-out; /* Animation for the container */
+  aspect-ratio: 16 / 9;
+  /* Maintain video aspect ratio */
+  border: 5px solid rgba(255, 255, 255, 0.8);
+  /* White border for effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  /* Subtle shadow for depth */
+  object-fit: contain;
+  opacity: 0.9;
+  animation: fadeIn 1s ease-in-out;
+  /* Animation for the container */
 }
+
 
 /* Animated Video */
 .animated-video {
   width: 100%;
-  height: 100%;
   object-fit: cover;
   border: none;
-  animation: scaleIn 1s ease-in-out; /* Animation for video scaling */
+  animation: scaleIn 1s ease-in-out;
+  /* Animation for video scaling */
 }
 
 /* Fade-in Animation */
@@ -77,6 +88,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -88,9 +100,9 @@ body {
     transform: scale(0.5);
     opacity: 0.5;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
   }
 }
-
