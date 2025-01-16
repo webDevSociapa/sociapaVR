@@ -78,7 +78,7 @@ body {
 .animated-video {
   width: 100%;
   object-fit: cover;
-  padding: 125px 0px 0px 0px;
+  padding: 135px 0px 0px 0px;
   border: none;
   height: 750px;
   animation: scaleIn 1s ease-in-out;
