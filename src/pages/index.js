@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import { QrReader } from "react-qr-reader";
+import React, { useState, useEffect } from "react";
+import SwipeableEdgeDrawer from "@/components/drawer";
 
 const QRScanner = () => {
   const [videoURL, setVideoURL] = useState(""); // Video URL
-  const [showVideoInFrame, setShowVideoInFrame] = useState(false); // Newspaper frame video
-  const [showVideoInBackground, setShowVideoInBackground] = useState(false); // Background video
-  const cameraRef = useRef(null);
+  const [showVideo, setShowVideo] = useState(false); // Toggle video mode
+  const [isDeviceMoving, setIsDeviceMoving] = useState(false); // Device movement detection
 
   useEffect(() => {
     const handleDeviceMotion = (event) => {
@@ -17,8 +16,8 @@ const QRScanner = () => {
         Math.abs(accelerationIncludingGravity.y) > 5 ||
         Math.abs(accelerationIncludingGravity.z) > 5
       ) {
-        setShowVideoInFrame(false);
-        setShowVideoInBackground(true);
+        setIsDeviceMoving(true);
+        setShowVideo(false); // Stop video and show background
       }
     };
 
@@ -31,30 +30,12 @@ const QRScanner = () => {
     };
   }, []);
 
-  const startCameraFeed = () => {
-    navigator.mediaDevices
-      .getUserMedia({ video: true })
-      .then((stream) => {
-        if (cameraRef.current) {
-          cameraRef.current.srcObject = stream;
-          cameraRef.current.play();
-        }
-      })
-      .catch((error) => {
-        console.error("Error accessing camera:", error);
-      });
-  };
-
-  useEffect(() => {
-    startCameraFeed();
-  }, []);
-
-  const handleQRDetected = () => {
+  const handlePlayWithSociapa = () => {
     setVideoURL(
       "https://apisindia.s3.ap-south-1.amazonaws.com/newwVideo/bonn+sp+2.mp4"
     );
-    setShowVideoInFrame(true);
-    setShowVideoInBackground(false);
+    setShowVideo(true);
+    setIsDeviceMoving(false); // Reset device movement
   };
 
   return (
@@ -63,27 +44,17 @@ const QRScanner = () => {
         position: "relative",
         width: "100%",
         height: "100vh",
-        backgroundImage: showVideoInBackground
-          ? "none"
-          : "url('./news1.png')", // Show background image if not showing video
-        backgroundSize: "cover",
+        backgroundImage: isDeviceMoving
+          ? "url('./new111.png')"
+          : "none", // Show background if device moves
+        backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
       }}
     >
-      <QrReader
-        onResult={(result, error) => {
-          if (!!result) {
-            handleQRDetected();
-          }
-          if (!!error) {
-            console.error(error);
-          }
-        }}
-        style={{ width: "100%" }}
-      />
-
-      {showVideoInFrame && (
+      {!showVideo ? (
+        <SwipeableEdgeDrawer onPlayWithSociapa={handlePlayWithSociapa} />
+      ) : (
         <div
           style={{
             position: "absolute",
@@ -91,7 +62,7 @@ const QRScanner = () => {
             left: "10%",
             width: "80%",
             height: "80%",
-            border: "10px solid #000",
+            border: "10px solid #000", // Newspaper-like frame
             boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.5)",
             backgroundColor: "#fff",
           }}
@@ -105,38 +76,6 @@ const QRScanner = () => {
           />
         </div>
       )}
-
-      {showVideoInBackground && (
-        <video
-          src={videoURL}
-          autoPlay
-          muted
-          loop
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: -1,
-          }}
-        />
-      )}
-
-      <video
-        ref={cameraRef}
-        style={{
-          position: "absolute",
-          top: "10px",
-          right: "10px",
-          width: "150px",
-          height: "100px",
-          zIndex: 10,
-          border: "2px solid #fff",
-        }}
-        muted
-      />
     </div>
   );
 };
